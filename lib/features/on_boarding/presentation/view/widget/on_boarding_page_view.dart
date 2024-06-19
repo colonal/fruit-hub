@@ -1,6 +1,8 @@
+import 'package:e_commerce_app/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/app_images.dart';
+import '../../../../../core/utils/app_text_styles.dart';
 import 'page_view_item.dart';
 
 class OnBoardingPageView extends StatelessWidget {
@@ -11,7 +13,7 @@ class OnBoardingPageView extends StatelessWidget {
   Widget build(BuildContext context) {
     return PageView(
       controller: pageController,
-      children: const [
+      children: [
         PageViewItem(
           image: Assets.imagesPageViewItem1Image,
           backgroundImage: Assets.imagesPageViewItem1Background,
@@ -20,14 +22,27 @@ class OnBoardingPageView extends StatelessWidget {
           title: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("مرحبًا بك في "),
-              Text("Fruit"),
-              Text(" HUB"),
+              const Text(
+                "مرحبًا بك في ",
+                style: TextStyles.bold23,
+              ),
+              Text(
+                "HUB",
+                style: TextStyles.bold23.copyWith(
+                  color: AppColors.secondaryColor,
+                ),
+              ),
+              Text(
+                "Fruit",
+                style: TextStyles.bold23.copyWith(
+                  color: AppColors.primaryColor,
+                ),
+              ),
             ],
           ),
           isVisibleSkep: true,
         ),
-        PageViewItem(
+        const PageViewItem(
           image: Assets.imagesPageViewItem2Image,
           backgroundImage: Assets.imagesPageViewItem2Background,
           subTitle:
@@ -35,6 +50,7 @@ class OnBoardingPageView extends StatelessWidget {
           title: Text(
             "ابحث وتسوق",
             textAlign: TextAlign.center,
+            style: TextStyles.bold23,
           ),
           isVisibleSkep: false,
         ),
