@@ -4,11 +4,13 @@ import '../../../../../core/utils/app_images.dart';
 import 'page_view_item.dart';
 
 class OnBoardingPageView extends StatelessWidget {
-  const OnBoardingPageView({super.key});
+  final PageController pageController;
+  const OnBoardingPageView({required this.pageController, super.key});
 
   @override
   Widget build(BuildContext context) {
     return PageView(
+      controller: pageController,
       children: const [
         PageViewItem(
           image: Assets.imagesPageViewItem1Image,
@@ -23,6 +25,7 @@ class OnBoardingPageView extends StatelessWidget {
               Text(" HUB"),
             ],
           ),
+          isVisibleSkep: true,
         ),
         PageViewItem(
           image: Assets.imagesPageViewItem2Image,
@@ -33,6 +36,7 @@ class OnBoardingPageView extends StatelessWidget {
             "ابحث وتسوق",
             textAlign: TextAlign.center,
           ),
+          isVisibleSkep: false,
         ),
       ],
     );

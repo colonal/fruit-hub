@@ -8,11 +8,13 @@ class PageViewItem extends StatelessWidget {
     required this.backgroundImage,
     required this.subTitle,
     required this.title,
+    required this.isVisibleSkep,
   });
 
   final String image, backgroundImage;
   final String subTitle;
   final Widget title;
+  final bool isVisibleSkep;
 
   @override
   Widget build(BuildContext context) {
@@ -38,11 +40,14 @@ class PageViewItem extends StatelessWidget {
                   image,
                 ),
               ),
-              const SafeArea(
-                child: Padding(
-                  padding: EdgeInsets.all(16.0),
-                  child: Text(
-                    "تخطي",
+              SafeArea(
+                child: Visibility(
+                  visible: isVisibleSkep,
+                  child: const Padding(
+                    padding: EdgeInsets.all(16.0),
+                    child: Text(
+                      "تخطي",
+                    ),
                   ),
                 ),
               ),
