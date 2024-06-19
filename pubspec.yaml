@@ -38,6 +38,8 @@ dependencies:
     sdk: flutter
   # Widget to display dots indicator to show a position
   dots_indicator: ^3.0.0
+  # Wraps platform-specific persistent storage for simple data
+  shared_preferences: ^2.2.3
 
 dev_dependencies:
   # A command-line tool which simplifies the task of updating your Flutter app's launcher icon.
