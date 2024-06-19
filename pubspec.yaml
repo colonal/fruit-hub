@@ -33,11 +33,16 @@ dependencies:
     sdk: flutter
   # Draw SVG files using Flutter.
   flutter_svg: ^2.0.10+1
+  # added localizations in project
+  flutter_localizations:
+    sdk: flutter
+  # Widget to display dots indicator to show a position
+  dots_indicator: ^3.0.0
 
 dev_dependencies:
   # A command-line tool which simplifies the task of updating your Flutter app's launcher icon.
   flutter_launcher_icons: ^0.13.1
-
+    
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
@@ -83,10 +88,10 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
-
-
 flutter_assets:
   assets_path: assets/images
   output_path: lib/core/utils
   filename: app_images.dart
-  field_prefix: 
+  field_prefix: null
+flutter_intl:
+  enabled: true
