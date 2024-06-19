@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../../../../constants.dart';
 import '../../../../../core/utils/app_text_styles.dart';
+import '../../../../../services/shared_preferences_singleton.dart';
 import '../../../../auth/presentation/view/login_view.dart';
 
 class PageViewItem extends StatelessWidget {
@@ -48,6 +50,10 @@ class PageViewItem extends StatelessWidget {
                   visible: isVisibleSkep,
                   child: TextButton(
                     onPressed: () {
+                      SharedPreferencesSingleton.setBool(
+                        kIsOnBoardingViewSeen,
+                        true,
+                      );
                       Navigator.of(context)
                           .pushReplacementNamed(LoginView.routeName);
                     },

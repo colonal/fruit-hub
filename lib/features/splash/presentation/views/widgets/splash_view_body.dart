@@ -2,6 +2,9 @@ import 'package:e_commerce_app/core/utils/app_images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../../../../constants.dart';
+import '../../../../../services/shared_preferences_singleton.dart';
+import '../../../../auth/presentation/view/login_view.dart';
 import '../../../../on_boarding/presentation/view/on_boarding_view.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -38,8 +41,15 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   }
 
   void executeNavigation() {
+    final isViewOnBoarding = SharedPreferencesSingleton.getBool(
+      kIsOnBoardingViewSeen,
+    );
     Future.delayed(const Duration(seconds: 3), () {
-      Navigator.pushReplacementNamed(context, OnBoardingView.routeName);
+      if (isViewOnBoarding) {
+        Navigator.pushReplacementNamed(context, LoginView.routeName);
+      } else {
+        Navigator.pushReplacementNamed(context, OnBoardingView.routeName);
+      }
     });
   }
 }
