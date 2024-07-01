@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'core/helpers/on_generate_route.dart';
+import 'core/utils/app_colors.dart';
 import 'features/splash/presentation/views/splash_view.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'generated/l10n.dart';
@@ -22,6 +23,10 @@ class FruitHub extends StatelessWidget {
       title: 'Fruit Hub',
       theme: ThemeData(
         fontFamily: "Cairo",
+        scaffoldBackgroundColor: Colors.white,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: AppColors.primaryColor,
+        ),
       ),
       localizationsDelegates: const [
         S.delegate,
