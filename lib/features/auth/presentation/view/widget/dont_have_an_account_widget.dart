@@ -1,7 +1,9 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
+import '../signup_view.dart';
 
 class DontHaveAnAccountWidget extends StatelessWidget {
   const DontHaveAnAccountWidget({super.key});
@@ -22,6 +24,10 @@ class DontHaveAnAccountWidget extends StatelessWidget {
           style: TextStyles.semiBold16.copyWith(
             color: AppColors.primaryColor,
           ),
+          recognizer: TapGestureRecognizer()
+            ..onTap = () {
+              Navigator.of(context).pushNamed(SignupView.routeName);
+            },
         ),
       ]),
     );
