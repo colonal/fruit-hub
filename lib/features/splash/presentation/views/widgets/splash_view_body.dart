@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../../constants.dart';
-import '../../../../../services/shared_preferences_singleton.dart';
+import '../../../../../core/services/shared_preferences_singleton.dart';
 import '../../../../auth/presentation/view/login_view.dart';
 import '../../../../on_boarding/presentation/view/on_boarding_view.dart';
 

@@ -8,12 +8,16 @@ class CustomTextFormField extends StatelessWidget {
   final Widget? suffixIcon;
   final TextInputType? keyboardType;
   final TextInputAction? textInputAction;
+  final void Function(String?)? onSaved;
+  final bool obscureText;
   const CustomTextFormField(
       {required this.hintText,
       this.controller,
       this.suffixIcon,
       this.keyboardType,
       this.textInputAction,
+      this.onSaved,
+      this.obscureText = false,
       super.key});
 
   @override
@@ -36,6 +40,14 @@ class CustomTextFormField extends StatelessWidget {
       smartQuotesType: SmartQuotesType.enabled,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       onTapOutside: (event) => FocusManager.instance.primaryFocus?.unfocus(),
+      onSaved: onSaved,
+      obscureText: obscureText,
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'هذا الحقل مطلوب';
+        }
+        return null;
+      },
     );
   }
 

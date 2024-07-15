@@ -29,22 +29,24 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   cupertino_icons: ^1.0.6
+  dartz: ^0.10.1
+  dots_indicator: ^3.0.0
+  firebase_auth: ^5.1.1
+  firebase_core: ^3.1.1
   flutter:
     sdk: flutter
-  # Draw SVG files using Flutter.
-  flutter_svg: ^2.0.10+1
-  # added localizations in project
+  flutter_bloc: ^8.1.6
   flutter_localizations:
     sdk: flutter
-  # Widget to display dots indicator to show a position
-  dots_indicator: ^3.0.0
-  # Wraps platform-specific persistent storage for simple data
+  flutter_svg: ^2.0.10+1
+  get_it: ^7.7.0
+  logger: ^2.4.0
+  modal_progress_hud_nsn: ^0.5.1
   shared_preferences: ^2.2.3
 
 dev_dependencies:
-  # A command-line tool which simplifies the task of updating your Flutter app's launcher icon.
   flutter_launcher_icons: ^0.13.1
-    
+
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your

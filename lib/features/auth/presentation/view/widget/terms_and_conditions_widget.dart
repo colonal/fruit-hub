@@ -4,15 +4,29 @@ import 'package:flutter/material.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import 'custom_check_box.dart';
 
-class TermsAndConditionsWidget extends StatelessWidget {
-  const TermsAndConditionsWidget({super.key});
+class TermsAndConditionsWidget extends StatefulWidget {
+  final ValueChanged<bool> onChanged;
+  const TermsAndConditionsWidget({required this.onChanged, super.key});
+
+  @override
+  State<TermsAndConditionsWidget> createState() =>
+      _TermsAndConditionsWidgetState();
+}
+
+class _TermsAndConditionsWidgetState extends State<TermsAndConditionsWidget> {
+  bool isChecked = false;
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
       leading: CustomCheckBox(
-        isChecked: true,
-        onChecked: (value) {},
+        isChecked: isChecked,
+        onChecked: (bool value) {
+          setState(() {
+            isChecked = !isChecked;
+            widget.onChanged.call(value);
+          });
+        },
       ),
       contentPadding: EdgeInsets.zero,
       minVerticalPadding: 0,
