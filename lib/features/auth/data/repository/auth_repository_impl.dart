@@ -33,4 +33,35 @@ class AuthRepositoryImpl extends AuthRepository {
           "لقد حدث خطأ غير معروف. الرجاء المحاولة مرة اخرى"));
     }
   }
+
+  @override
+  Future<Either<Failures, UserEntity>> signInWithEmailAndPassword(
+      String email, String password) async {
+    try {
+      final user = await firebaseAuthService.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      return right(UserModel.fromFirebaseUser(user));
+    } on CustomException catch (e) {
+      return left(ServerFailure(e.message));
+    } catch (e) {
+      logger.e("Exception in [AuthRepositoryImpl.signInWithEmailAndPassword]",
+          error: e);
+      return left(const ServerFailure(
+          "لقد حدث خطأ غير معروف. الرجاء المحاولة مرة اخرى"));
+    }
+  }
+
+  @override
+  Future<Either<Failures, UserEntity>> signInWithGoogle() async {
+    try {
+      final user = await firebaseAuthService.signInWithGoogle();
+      return right(UserModel.fromFirebaseUser(user));
+    } catch (e) {
+      logger.e("Exception in [AuthRepositoryImpl.signInWithGoogle]", error: e);
+      return left(const ServerFailure(
+          "لقد حدث خطأ غير معروف. الرجاء المحاولة مرة اخرى"));
+    }
+  }
 }

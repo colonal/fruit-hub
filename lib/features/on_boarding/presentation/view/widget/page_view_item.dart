@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../../constants.dart';
 import '../../../../../core/services/shared_preferences_singleton.dart';
 import '../../../../../core/utils/app_text_styles.dart';
-import '../../../../auth/presentation/view/login_view.dart';
+import '../../../../auth/presentation/view/signin_view.dart';
 
 class PageViewItem extends StatelessWidget {
   const PageViewItem({
@@ -55,7 +55,7 @@ class PageViewItem extends StatelessWidget {
                         true,
                       );
                       Navigator.of(context)
-                          .pushReplacementNamed(LoginView.routeName);
+                          .pushReplacementNamed(SignInView.routeName);
                     },
                     child: Text(
                       "تخطي",

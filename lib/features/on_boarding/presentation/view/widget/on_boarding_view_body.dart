@@ -5,7 +5,7 @@ import '../../../../../constants.dart';
 import '../../../../../core/services/shared_preferences_singleton.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_button.dart';
-import '../../../../auth/presentation/view/login_view.dart';
+import '../../../../auth/presentation/view/signin_view.dart';
 import 'on_boarding_page_view.dart';
 
 class OnBoardingViewBody extends StatefulWidget {
@@ -72,7 +72,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                             true,
                           );
                           Navigator.of(context)
-                              .pushReplacementNamed(LoginView.routeName);
+                              .pushReplacementNamed(SignInView.routeName);
                         },
                       ),
                     ),
