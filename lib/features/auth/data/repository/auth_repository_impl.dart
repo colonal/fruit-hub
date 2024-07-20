@@ -64,4 +64,16 @@ class AuthRepositoryImpl extends AuthRepository {
           "لقد حدث خطأ غير معروف. الرجاء المحاولة مرة اخرى"));
     }
   }
+
+  @override
+  Future<Either<Failures, UserEntity>> signInWithFacebook() async {
+    try {
+      final user = await firebaseAuthService.signInWithFacebook();
+      return right(UserModel.fromFirebaseUser(user));
+    } catch (e) {
+      logger.e("Exception in [AuthRepositoryImpl.signInWithGoogle]", error: e);
+      return left(const ServerFailure(
+          "لقد حدث خطأ غير معروف. الرجاء المحاولة مرة اخرى"));
+    }
+  }
 }
