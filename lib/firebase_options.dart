@@ -64,7 +64,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '231869554957',
     projectId: 'fruit-hub-b326e',
     storageBucket: 'fruit-hub-b326e.appspot.com',
-    iosBundleId: 'com.example.eCommerceApp',
+    iosBundleId: 'com.colonal.fruit-hub',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
