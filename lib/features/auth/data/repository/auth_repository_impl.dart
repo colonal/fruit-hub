@@ -1,11 +1,15 @@
+import 'dart:convert';
+
 import 'package:dartz/dartz.dart';
 import 'package:e_commerce_app/core/errors/exception.dart';
 import 'package:e_commerce_app/features/auth/data/model/user_model.dart';
 
+import '../../../../constants.dart';
 import '../../../../core/errors/failures.dart';
 import '../../../../core/helpers/logger.dart';
 import '../../../../core/services/data_service.dart';
 import '../../../../core/services/firebase_auth_service.dart';
+import '../../../../core/services/shared_preferences_singleton.dart';
 import '../../../../core/utils/backend_endpoint.dart';
 import '../../domain/entites/user_entity.dart';
 import '../../domain/repository/auth_repository.dart';
@@ -56,6 +60,7 @@ class AuthRepositoryImpl extends AuthRepository {
       );
 
       final userEntity = await getUserData(uid: user.uid);
+      await saveUserData(user: userEntity);
 
       return right(userEntity);
     } on CustomException catch (e) {
@@ -76,6 +81,7 @@ class AuthRepositoryImpl extends AuthRepository {
 
       final isUserExists = await databaseService.checkIfDataExists(
           path: BackendEndpoint.isUserExists, documentId: userEntity.uId);
+      await saveUserData(user: userEntity);
       if (isUserExists) {
         await getUserData(uid: user.uid);
       } else {
@@ -98,6 +104,7 @@ class AuthRepositoryImpl extends AuthRepository {
 
       final isUserExists = await databaseService.checkIfDataExists(
           path: BackendEndpoint.isUserExists, documentId: userEntity.uId);
+      await saveUserData(user: userEntity);
       if (isUserExists) {
         await getUserData(uid: user.uid);
       } else {
@@ -120,6 +127,7 @@ class AuthRepositoryImpl extends AuthRepository {
 
       final isUserExists = await databaseService.checkIfDataExists(
           path: BackendEndpoint.isUserExists, documentId: userEntity.uId);
+      await saveUserData(user: userEntity);
       if (isUserExists) {
         await getUserData(uid: user.uid);
       } else {
@@ -155,5 +163,11 @@ class AuthRepositoryImpl extends AuthRepository {
       documentId: uid,
     );
     return UserModel.fromJson(userData);
+  }
+
+  @override
+  Future saveUserData({required UserEntity user}) async {
+    var jsonData = jsonEncode(UserModel.fromEntity(user).toMap());
+    await SharedPreferencesSingleton.setString(kUserData, jsonData);
   }
 }

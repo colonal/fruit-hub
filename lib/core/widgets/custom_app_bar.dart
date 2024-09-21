@@ -4,7 +4,8 @@ import '../utils/app_text_styles.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
-  const CustomAppBar({required this.title, super.key});
+  final List<Widget>? actions;
+  const CustomAppBar({required this.title, this.actions, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +21,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         title,
         style: TextStyles.bold19,
       ),
+      actions: actions,
     );
   }
 
