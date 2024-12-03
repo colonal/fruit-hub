@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../../constants.dart';
 import '../../../../../core/widgets/search_text_field.dart';
-import 'best_selling_grid_view.dart';
+import 'best_selling_grid_view_bloc_builder.dart';
 import 'best_selling_header.dart';
 import 'custom_home_app_bar.dart';
 import 'featured_list.dart';
@@ -31,7 +31,7 @@ class HomeViewBody extends StatelessWidget {
               ],
             ),
           ),
-          BestSellingGridView(),
+          BestSellingGridViewBlocBuilder(),
           SliverToBoxAdapter(child: SizedBox(height: 16)),
         ],
       ),
