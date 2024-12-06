@@ -19,8 +19,7 @@ ProductEntities getDummyProduct() {
     isOrganic: true,
     avgRating: 4.75,
     ratingCount: 2,
-    imageUrl:
-        'https://static.vecteezy.com/system/resources/thumbnails/016/940/260/small_2x/apple-fruit-isolated-on-white-background-photo.jpg',
+    imageUrl: null,
   );
 }
 
@@ -29,14 +28,14 @@ List<ReviewEntity> getDummyReviews() {
     ReviewEntity(
       name: 'John Doe',
       image: 'path/to/image1.jpg',
-      ratting: '4.5',
+      ratting: 4.5,
       date: '2024-12-01',
       reviewDescription: 4.5,
     ),
     ReviewEntity(
       name: 'Jane Smith',
       image: 'path/to/image2.jpg',
-      ratting: '5.0',
+      ratting: 5.0,
       date: '2024-12-02',
       reviewDescription: 5.0,
     ),

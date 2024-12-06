@@ -3,7 +3,7 @@ import '../entities/review_entity.dart';
 class ReviewMode {
   final String name;
   final String image;
-  final String ratting;
+  final double ratting;
   final String date;
   final double reviewDescription;
   ReviewMode({

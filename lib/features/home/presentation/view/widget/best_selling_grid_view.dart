@@ -16,9 +16,9 @@ class BestSellingGridView extends StatelessWidget {
         crossAxisSpacing: 16,
         childAspectRatio: 163 / 214,
       ),
-      itemCount: 6,
+      itemCount: products.length,
       itemBuilder: (context, index) {
-        return const FruitItem();
+        return FruitItem(product: products[index]);
       },
     );
   }

@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import '../entities/product_entities.dart';
+import '../helpers/get_average_rating.dart';
 import 'review_mode.dart';
 
 class ProductModel {
@@ -9,7 +10,7 @@ class ProductModel {
   final num price;
   final String code;
   final bool isFeatured;
-  final File image;
+
   String? imageUrl;
   final int expirationMonths;
   final bool isOrganic;
@@ -26,7 +27,6 @@ class ProductModel {
     required this.price,
     required this.code,
     required this.isFeatured,
-    required this.image,
     required this.expirationMonths,
     required this.numberOfCalories,
     required this.unitAmount,
@@ -44,7 +44,7 @@ class ProductModel {
       price: price,
       code: code,
       isFeatured: isFeatured,
-      image: image,
+      image: File(''),
       imageUrl: imageUrl,
       expirationMonths: expirationMonths,
       isOrganic: isOrganic,
@@ -63,13 +63,13 @@ class ProductModel {
       price: map['price'] as num,
       code: map['code'] as String,
       isFeatured: map['isFeatured'] as bool,
-      image: map['image'] as File,
       imageUrl: map['imageUrl'] as String,
       expirationMonths: map['expirationMonths'] as int,
       isOrganic: map['isOrganic'] as bool,
       numberOfCalories: map['numberOfCalories'] as int,
       unitAmount: map['unitAmount'] as int,
-      avgRating: map['avgRating'] as num,
+      avgRating: getAverageRating(List<ReviewMode>.from(
+          map['reviews']?.map((x) => ReviewMode.fromJson(x)))),
       ratingCount: map['ratingCount'] as num,
       sellingCount: map['sellingCount'] as int,
       reviews: List<ReviewMode>.from(
