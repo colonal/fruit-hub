@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../constants.dart';
 import '../../../../../core/cubits/product/product_cubit.dart';
+import '../../../../../core/widgets/notification_widget.dart';
 import '../../../../../core/widgets/search_text_field.dart';
 import 'products_grid_view_bloc_builder.dart';
 import 'products_view_header.dart';
@@ -21,7 +22,13 @@ class ProductsViewBody extends StatelessWidget {
             child: Column(
               children: [
                 const SizedBox(height: kTopPadding),
-                const CustomAppBar(title: "المنتجات", showBackButton: false),
+                const CustomAppBar(
+                  title: "المنتجات",
+                  showBackButton: false,
+                  actions: [
+                    NotificationWidget(),
+                  ],
+                ),
                 const SizedBox(height: 16),
                 const SearchTextField(),
                 const SizedBox(height: 12),
