@@ -6,6 +6,12 @@ class _InActiveItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SvgPicture.asset(item.inActiveImage);
+    return ColoredBox(
+      color: Colors.transparent,
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: SvgPicture.asset(item.inActiveImage),
+      ),
+    );
   }
 }

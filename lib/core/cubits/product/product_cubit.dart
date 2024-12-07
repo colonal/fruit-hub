@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:e_commerce_app/core/repos/products/products_repo.dart';
-import 'package:meta/meta.dart';
 
 import '../../entities/product_entities.dart';
 
@@ -10,12 +9,21 @@ class ProductCubit extends Cubit<ProductState> {
   final ProductsRepo productsRepo;
   ProductCubit({required this.productsRepo}) : super(ProductInitial());
 
+  int productsCount = 0;
+
   Future<void> getProducts() async {
     emit(ProductLoading());
     final result = await productsRepo.getProducts();
     result.fold(
-      (failure) => emit(ProductError(failure.message)),
-      (products) => emit(ProductSuccess(products)),
+      (failure) {
+        productsCount = 0;
+
+        emit(ProductError(failure.message));
+      },
+      (products) {
+        productsCount = products.length;
+        emit(ProductSuccess(products));
+      },
     );
   }
 
