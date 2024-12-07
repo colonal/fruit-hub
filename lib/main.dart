@@ -6,6 +6,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'core/helpers/on_generate_route.dart';
 import 'core/services/custom_bloc_observer.dart';
+import 'core/services/firebase_auth_service.dart';
 import 'core/services/shared_preferences_singleton.dart';
 import 'core/utils/app_colors.dart';
 import 'features/splash/presentation/views/splash_view.dart';
@@ -20,6 +21,7 @@ void main() async {
   );
   Bloc.observer = CustomBlocObserver();
   setupGetIt();
+  FirebaseAuthService.authStateChanges();
   runApp(const FruitHub());
 }
 

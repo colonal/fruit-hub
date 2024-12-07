@@ -12,6 +12,7 @@ import '../errors/exception.dart';
 import '../helpers/logger.dart';
 
 class FirebaseAuthService {
+  static bool isLoggedIn = false;
   Future<User> createUserWithEmailAndPassword(
       {required String email, required String password}) async {
     try {
@@ -193,7 +194,13 @@ class FirebaseAuthService {
     await FirebaseAuth.instance.signOut();
   }
 
-  bool isLoggedIn() {
-    return FirebaseAuth.instance.currentUser != null;
+  static void authStateChanges() {
+    FirebaseAuth.instance.authStateChanges().listen((event) {
+      if (event != null) {
+        isLoggedIn = true;
+      } else {
+        isLoggedIn = false;
+      }
+    });
   }
 }
