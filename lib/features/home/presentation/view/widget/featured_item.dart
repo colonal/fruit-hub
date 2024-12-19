@@ -55,11 +55,18 @@ class FeaturedItem extends StatelessWidget {
                         color: Colors.white,
                       ),
                     ),
-                    const SizedBox(height: 11),
-                    FeaturedItemButton(
-                      onPressed: () {},
+                    FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Column(
+                        children: [
+                          const SizedBox(height: 10),
+                          FeaturedItemButton(
+                            onPressed: () {},
+                          ),
+                          const SizedBox(height: 20),
+                        ],
+                      ),
                     ),
-                    const SizedBox(height: 29),
                   ],
                 ),
               ),
