@@ -8,3 +8,12 @@ void buildErrorBar(BuildContext context, String message) {
     ),
   );
 }
+
+void buildSuccessBar(BuildContext context, String message) {
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      backgroundColor: Colors.green.shade400,
+      content: Text(message),
+    ),
+  );
+}
