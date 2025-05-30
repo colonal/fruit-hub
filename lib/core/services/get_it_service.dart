@@ -1,3 +1,5 @@
+import 'package:e_commerce_app/core/repos/orders/orders_repos.dart';
+import 'package:e_commerce_app/core/repos/orders/orders_repos_impl.dart';
 import 'package:e_commerce_app/core/repos/products/products_repo.dart';
 import 'package:e_commerce_app/core/services/data_service.dart';
 import 'package:e_commerce_app/core/services/firebase_auth_service.dart';
@@ -21,6 +23,10 @@ void setupGetIt() {
     ),
   );
   getIt.registerLazySingleton<ProductsRepo>(() => ProductsRepoImpl(
+        databaseService: getIt<DatabaseService>(),
+      ));
+
+  getIt.registerLazySingleton<OrdersRepos>(() => OrdersReposImpl(
         databaseService: getIt<DatabaseService>(),
       ));
 }
