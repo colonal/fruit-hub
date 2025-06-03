@@ -13,11 +13,14 @@ class OrdersReposImpl extends OrdersRepos {
   OrdersReposImpl({required this.databaseService});
 
   @override
-  Future<Either<Failures, void>> addOrders({required OrderEntity order}) async {
+  Future<Either<Failures, void>> addOrders(
+      {required OrderInputEntity order}) async {
     try {
+      final orderModel = OrderModel.fromEntity(order);
       await databaseService.addData(
         path: BackendEndpoint.addOrders,
-        data: OrderModel.fromEntity(order).toJson(),
+        documentId: orderModel.orderId,
+        data: orderModel.toJson(),
       );
 
       return right(null);

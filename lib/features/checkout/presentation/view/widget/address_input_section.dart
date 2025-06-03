@@ -21,7 +21,7 @@ class _AddressInputSectionState extends State<AddressInputSection>
   Widget build(BuildContext context) {
     super.build(context);
     ShippingAddressEntity? address =
-        context.read<OrderEntity>().shippingAddress;
+        context.read<OrderInputEntity>().shippingAddress;
     return SingleChildScrollView(
       child: ValueListenableBuilder<AutovalidateMode>(
         valueListenable: widget.autovalidateMode,

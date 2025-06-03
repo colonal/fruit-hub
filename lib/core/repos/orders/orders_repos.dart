@@ -4,5 +4,5 @@ import 'package:e_commerce_app/features/checkout/domain/entities/order_entity.da
 import '../../errors/failures.dart';
 
 abstract class OrdersRepos {
-  Future<Either<Failures, void>> addOrders({required OrderEntity order});
+  Future<Either<Failures, void>> addOrders({required OrderInputEntity order});
 }

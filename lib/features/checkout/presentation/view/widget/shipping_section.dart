@@ -18,7 +18,7 @@ class _ShippingSectionState extends State<ShippingSection>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    OrderEntity order = context.watch<OrderEntity>();
+    OrderInputEntity order = context.watch<OrderInputEntity>();
     return Column(
       children: [
         const SizedBox(height: 33),

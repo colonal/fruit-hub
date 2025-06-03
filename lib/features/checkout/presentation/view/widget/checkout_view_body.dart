@@ -139,7 +139,7 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   }
 
   bool _handleShippingSection() {
-    if (context.read<OrderEntity>().payWithCash != null) {
+    if (context.read<OrderInputEntity>().payWithCash != null) {
       return true;
     } else {
       buildErrorBar(context, 'اختر طريقة الدفع');
@@ -149,7 +149,7 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   }
 
   void _processPayment(BuildContext context) {
-    var order = context.read<OrderEntity>();
+    var order = context.read<OrderInputEntity>();
     PaypalPaymentEntity payPalPayment = PaypalPaymentEntity.fromEntity(order);
     log(payPalPayment.toJson().toString());
     Navigator.of(context).push(MaterialPageRoute(
