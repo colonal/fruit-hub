@@ -41,5 +41,7 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+.cxx/
+**/.cxx/
 .qodo
 lib/core/utils/app_keys.dart

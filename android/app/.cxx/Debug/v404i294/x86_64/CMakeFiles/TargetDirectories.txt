@@ -1,2 +1,0 @@
-E:/flutter/e_commerce_app/android/app/.cxx/Debug/v404i294/x86_64/CMakeFiles/edit_cache.dir
-E:/flutter/e_commerce_app/android/app/.cxx/Debug/v404i294/x86_64/CMakeFiles/rebuild_cache.dir
